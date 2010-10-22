@@ -1,0 +1,175 @@
+
+body
+{
+  background-color: #FFFFFF;
+  font-family: verdana, Helvetica, sans-serif;
+}
+
+img
+{
+    border: 0px solid blue;    
+}
+
+a
+{
+color : #33ccff;
+}
+   
+a:link
+{
+color : #33ccff;
+}
+
+a:visited
+{
+color : #33ccff;
+}
+
+a:hover
+{
+color : #33ccff;
+}
+
+h1, h2, h3, h4, h5
+{
+  color: #33ccff;
+  /* color: #c0d15e; */
+}
+#contentwrapper
+{
+  width: 820px;
+  margin: 20px auto 20px auto;  
+}
+
+.lightdata
+{
+  
+}
+
+#datatables
+{
+  margin: 5px auto 5px; auto;
+  width: 600px;
+}
+
+.header
+{
+  width: 40em;
+  margin: 20px auto 20px auto;  
+}
+
+.header h1
+{
+  color: #33ccff;
+}
+
+table th
+{
+  font-weight: bold;
+  border-style: none none solid none;
+  border-color: #33ccff;
+  color: #33ccff;
+  text-align: left;
+  width: 200px
+}
+
+tbody
+{
+  background-color: #ffffff;
+}
+
+.alternaterow
+{
+   background-color: #ddecff;
+}
+
+.lightoff
+{
+
+  color: #33ccff;  
+}
+
+.lighton
+{
+  font-weight: bold;
+  /*color: #c0d15e; */
+  color: #ff5b5b;  
+}
+
+.allok
+{
+   color: #c0d15e;  
+}
+
+.warning
+{
+  font-weight: bold;
+  color: #ff5b5b;  
+}
+
+
+/* For the rounded boxes */
+
+.boxtop
+{
+    background: url(../images/boximages/boxtop.png) repeat-x;    
+}
+
+.boxtl
+{
+    width: 14px;
+    background: url(../images/boximages/tl.png) no-repeat top left;
+}
+
+.boxtr
+{
+    width: 14px;
+    background: url(../images/boximages/tr.png) no-repeat top right;
+}
+
+.boxcontentwrap
+{
+    background: url(../images/boximages/boxleft.png) repeat-y;
+}
+
+.boxcontent
+{
+    background: url(../images/boximages/boxright.png) repeat-y right;
+    min-height: 230px;    
+}
+
+.boxcontent div
+{
+  padding: 1px 20px 10px 20px;
+}
+
+.boxbottom
+{
+    background: url(../images/boximages/boxbottom.png) repeat-x;
+}
+
+.boxbl
+{
+    width: 14px;
+    background: url(../images/boximages/bl.png) no-repeat top left;
+}
+
+.boxbr
+{
+    width: 14px;
+    background: url(../images/boximages/br.png) no-repeat top right;
+}
+
+.boxtop, .boxtl, .boxtr, .boxbl, .boxbr, .boxbottom
+{
+    width : 100%;
+    height: 14px;
+    font-size: 1px;
+}
+
+
+
+
+
+
+
