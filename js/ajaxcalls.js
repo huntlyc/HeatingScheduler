@@ -5,7 +5,6 @@ function loadSchedule(){
         }
         else
         {
-
             //Zedbra stripe the table
             $(".scheduletable tbody tr:odd").addClass("alternaterow");
             $(".scheduletable").tablesorter();
@@ -28,13 +27,47 @@ function loadSchedule(){
 }
 
 function addEntry(){
-  $.get("scripts/addtoschedule.php", {room: $("#room").val(),
+    
+  $("#conflictdialog").load("scripts/addtoschedule.php #result", {room: $("#room").val(),
                                       value: $("#value").val(),
                                       day: $("#day").val(),
-                                      hour: $("#hour").val(),
-                                      minute: $("#minute").val(),
-                                      type: $("#type").val()},
-                              function(){
-                                  loadSchedule();
-                              });
+                                      starthour: $("#starthour").val(),
+                                      startminute: $("#startminute").val(),
+                                      endhour: $("#endhour").val(),
+                                      endminute: $("#endminute").val(),
+                                      type: $("#type").val()}, function(){
+
+      $("#conflictform").submit(function(){
+            return false;
+          });
+
+          $("#conflictformsubmit").click(function(){
+            overwriteEntry();
+          });
+
+          loadSchedule();
+      alert($("#conflictdialog div p").text());
+      if($("#conflictdialog div p").text() != "Entry added to schedule")
+      {
+        $("#conflictdialog").dialog('open');
+      }
+  });
+
+}
+
+function overwriteEntry()
+{
+    $("#conflictdialog").dialog('close');
+    $("#confirmationdialog").load("scripts/resolveconflicts.php", {room: $("#conflictroom").val(),
+                                                                   value: $("#conflictvalue").val(),
+                                                                   day: $("#conflictday").val(),
+                                                                   starttime: $("#conflictstarttime").val(),
+                                                                   endtime: $("#conflictendtime").val(),
+                                                                   conflictchoice: $("#conflictform input[name='conflictchoice']:checked").val()},
+      function(){
+        $("#confirmationdialog").dialog({beforeClose: function(){
+                loadSchedule()
+                }});
+        $("#confirmationdialog").dialog('open');      
+   });
 }

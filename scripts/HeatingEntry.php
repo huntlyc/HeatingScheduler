@@ -11,19 +11,22 @@
  */
 
 include_once 'ScheduleEntry.php';
-class HeatingEntry implements ScheduleEntry
+class HeatingEntry extends ScheduleEntry
 {
     private $_roomid;
     private $_value;
     private $_day;
-    private $_time;
+    private $_starttime;
+    private $_endtime;
 
-    public function  __construct($roomid, $value, $day, $time)
+    public function  __construct($roomid, $value, $day, $starttime, $endtime)
     {
       $this->_roomid = $roomid;
       $this->_value = $value;
       $this->_day = $day;
-      $this->_time = $time;
+      $this->_starttime = $starttime;
+      $this->_endtime = $endtime;
+      include_once 'dbinfo.php';
     }
 
     public function getRoom()
@@ -31,9 +34,36 @@ class HeatingEntry implements ScheduleEntry
       return ($this->_roomid);
     }
 
+
+    public function getRoomName()
+    {        
+        $roomname = "error";
+        $db = new DBInfo();
+        $conn = mysql_connect(DBInfo::$server, DBInfo::$username, DBInfo::$password)
+                           or die("Connection error " . mysql_error());
+        mysql_select_db(DBInfo::$db);
+        $query = sprintf("SELECT roomname ".
+                         "FROM room " .
+                         "WHERE roomid='%s'",
+                         mysql_real_escape_string($this->_roomid));
+        $result = mysql_query($query);
+        $row = mysql_fetch_row($result);
+        $roomname = $row[0];
+        mysql_close($conn);
+
+        return ($roomname);
+    }
+
     public function getValue()
     {
-      return ($this->_value);
+      $value = "OFF";
+
+      if($this->_value > 5)
+      {
+        $value = $this->_value;
+      }
+      
+      return ($value);
     }
 
     public function getDay()
@@ -41,9 +71,21 @@ class HeatingEntry implements ScheduleEntry
       return ($this->_day);
     }
 
-    public function getTime()
+    public function getDayName()
     {
-      return ($this->_time);
+        include_once 'Day.php';
+        $day = new Day();
+        return ($day->getWeekDayName($this->_day));
+    }
+
+    public function getStartTime()
+    {
+      return ($this->_starttime);
+    }
+
+    public function getEndTime()
+    {
+      return ($this->_endtime);
     }
 }
 ?>

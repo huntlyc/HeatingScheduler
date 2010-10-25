@@ -30,6 +30,16 @@ CREATE TABLE `day` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `day`
+--
+
+LOCK TABLES `day` WRITE;
+/*!40000 ALTER TABLE `day` DISABLE KEYS */;
+INSERT INTO `day` VALUES (1,'Monday'),(2,'Tuesday'),(3,'Wednesday'),(4,'Thursday'),(5,'Friday'),(6,'Saturday'),(7,'Sunday');
+/*!40000 ALTER TABLE `day` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `room`
 --
 
@@ -44,6 +54,16 @@ CREATE TABLE `room` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `room`
+--
+
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,'Scott\'s room'),(2,'Huntly\'s room'),(3,'The Office');
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `schedule`
 --
 
@@ -55,11 +75,21 @@ CREATE TABLE `schedule` (
   `room` int(11) DEFAULT NULL,
   `value` int(11) DEFAULT NULL,
   `day` int(11) DEFAULT NULL,
-  `time` time DEFAULT NULL,
+  `starttime` time DEFAULT NULL,
+  `endtime` time DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `room` (`room`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=118 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedule`
+--
+
+LOCK TABLES `schedule` WRITE;
+/*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -70,4 +100,4 @@ CREATE TABLE `schedule` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2010-10-22  0:21:16
+-- Dump completed on 2010-10-24 23:57:29

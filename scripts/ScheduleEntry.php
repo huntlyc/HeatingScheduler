@@ -9,8 +9,9 @@
  *
  * @author hunt0r
  */
-interface ScheduleEntry
+class ScheduleEntry
 {
   
+
 }
 ?>

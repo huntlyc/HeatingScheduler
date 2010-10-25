@@ -7,14 +7,14 @@ body
 
 img
 {
-    border: 0px solid blue;    
+    border: 0px solid blue;
 }
 
 a
 {
 color : #33ccff;
 }
-   
+
 a:link
 {
 color : #33ccff;
@@ -38,29 +38,53 @@ h1, h2, h3, h4, h5
 #contentwrapper
 {
   width: 820px;
-  margin: 20px auto 20px auto;  
+  margin: 20px auto 20px auto;
 }
 
-.lightdata
-{
-  
+#addentryform
+{ 
+  overflow: hidden;
 }
 
-#datatables
-{
-  margin: 5px auto 5px; auto;
-  width: 600px;
+#roominfo
+{  
+  width: 250px;
+  float: left;
+}
+
+#timeinfo
+{  
+  margin-left: 70px;
+  width: 200px;
+  float: left;
+}
+
+#formsubmit
+{ 
+  width: 100px;
+  float: left;
+  margin: 40px auto 10px 70px;
 }
 
 .header
 {
   width: 40em;
-  margin: 20px auto 20px auto;  
+  margin: 20px auto 20px auto;
+}
+
+label
+{
+  color: #33ccff;
 }
 
 .header h1
 {
   color: #33ccff;
+}
+
+table
+{
+  width: 100%;
 }
 
 table th
@@ -70,7 +94,11 @@ table th
   border-color: #33ccff;
   color: #33ccff;
   text-align: left;
-  width: 200px
+}
+
+table.formtable tbody
+{
+    background-color: #f2f5f7;
 }
 
 tbody
@@ -83,36 +111,12 @@ tbody
    background-color: #ddecff;
 }
 
-.lightoff
-{
-
-  color: #33ccff;  
-}
-
-.lighton
-{
-  font-weight: bold;
-  /*color: #c0d15e; */
-  color: #ff5b5b;  
-}
-
-.allok
-{
-   color: #c0d15e;  
-}
-
-.warning
-{
-  font-weight: bold;
-  color: #ff5b5b;  
-}
-
 
 /* For the rounded boxes */
 
 .boxtop
 {
-    background: url(../images/boximages/boxtop.png) repeat-x;    
+    background: url(../images/boximages/boxtop.png) repeat-x;
 }
 
 .boxtl
@@ -135,13 +139,11 @@ tbody
 .boxcontent
 {
     background: url(../images/boximages/boxright.png) repeat-y right;
-    min-height: 230px;    
+    min-height: 230px;
+    padding: 1px 20px 10px 20px;
 }
 
-.boxcontent div
-{
-  padding: 1px 20px 10px 20px;
-}
+
 
 .boxbottom
 {
@@ -166,6 +168,7 @@ tbody
     height: 14px;
     font-size: 1px;
 }
+
 
 
 
